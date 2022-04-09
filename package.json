@@ -1,50 +1,27 @@
 {
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject"
   },
   "dependencies": {
-    "@databases/expo": "^5.0.0",
-    "@react-native-community/masked-view": "0.1.10",
-    "@react-native-mapbox-gl/maps": "8.3.0",
-    "@react-navigation/native": "^6.0.2",
-    "@react-navigation/native-stack": "6.1.0",
-    "@types/react": "^17.0.33",
-    "expo": "42.0.4",
-    "expo-camera": "~11.2.2",
-    "expo-clipboard": "~1.1.0",
-    "expo-permissions": "~12.1.1",
-    "expo-splash-screen": "~0.11.2",
-    "expo-sqlite": "~9.2.1",
-    "expo-status-bar": "~1.0.4",
-    "expo-updates": "~0.8.1",
-    "jsx-runtime": "^1.2.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "~0.63.4",
-    "react-native-android-location-services-dialog-box": "^2.8.2",
-    "react-native-camera": "4.2.1",
-    "react-native-drop-shadow": "^0.0.2",
-    "react-native-easy-grid": "^0.2.2",
-    "react-native-elements": "^3.4.2",
-    "react-native-gesture-handler": "~1.10.2",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.1",
+    "expo": "~44.0.0",
+    "expo-status-bar": "~1.2.0",
+    "react": "18.0.0",
+    "react-dom": "17.0.1",
+    "react-native": "^0.64.3",
     "react-native-heatmap-chart": "^1.0.2",
-    "react-native-reanimated": "~2.2.0",
-    "react-native-safe-area-context": "3.2.0",
-    "react-native-screens": "~3.4.0",
-    "react-native-sqlite-storage": "^5.0.0",
-    "react-native-svg": "12.1.1",
-    "react-native-unimodules": "0.14.10",
-    "react-native-web": "^0.17.1",
-    "react-navigation": "^4.4.4"
+    "react-native-safe-area-context": "^4.2.4",
+    "react-native-screens": "^3.13.1",
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "^7.12.9"
   },
-  "private": true,
-  "name": "LifeCycle",
-  "version": "1.0.0"
+  "private": true
 }
