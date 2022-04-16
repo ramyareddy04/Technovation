@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
         color: "#19C5E0"
     },
     home_log: {
-        width: 0.9 * width,
-        height: 0.4 * height,
+        width: 0.86 * width,
+        height: 0.22 * height,
         marginTop: 0.05 * width,
-        marginLeft: 0.05 * width,
-        marginRight: 0.05 * width,
+        marginLeft: 0.07 * width,
+        marginRight: 0.07 * width,
         backgroundColor: '#8AC755',
         borderRadius: 10,
         borderWidth: 1,
@@ -109,24 +109,93 @@ const styles = StyleSheet.create({
     heatmap : {
         backgroundColor: "#2E2E33", 
         marginTop: 10, 
-        marginLeft: 0.05*width, 
-        marginRight: 0.05*width
+        marginLeft: 0.075*width, 
+        marginRight: 0.075*width
+    },
+    log_box: {
+        width: 0.86 * width,
+        height: 0.4 * height,
+        marginTop: 0.05 * width,
+        marginLeft: 0.07 * width,
+        marginRight: 0.07 * width,
+        backgroundColor: '#8AC755',
+        borderRadius: 10,
+        borderWidth: 1,
+    },
+    log_box2: {
+        width: 0.86 * width,
+        height: 0.4 * height,
+        marginTop: 0.05 * width,
+        marginLeft: 0.07 * width,
+        marginRight: 0.07 * width,
+        marginBottom: 0.47 * width,
+        backgroundColor: '#8AC755',
+        borderRadius: 10,
+        borderWidth: 1,
+    },
+    calendar_container: {
+        width: 0.86 * width,
+        marginTop: 0.05 * width,
+        marginLeft: 0.07 * width,
+        marginRight: 0.07 * width,
+        flex: 1,
+        borderRadius: 10,
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor : '#8AC755'
+    },
+    title: {
+        textAlign: 'left',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    datePickerStyle: {
+        width: 230,
+    },
+    text: {
+        textAlign: 'left',
+        width: 230,
+        fontSize: 16,
+        color : "#000"
     },
     logText: {
         color: "#ffffff",
         fontSize: 20,
+        marginTop: 0.01 * width,
         marginLeft:.02*width
     },
     logText2: {
         color: "#ffffff",
-        fontSize: 18,
+        fontSize: 17,
         marginLeft:.02*width
     },
     logImg: {
         alignSelf: "center",
         width: 0.35*width,
         height: 0.28*height
-    }
+    },
+    camera: {
+        width: 0.8 * width, 
+        height: 0.42 * height,
+        marginLeft: 0.1*width,
+        marginTop: 0.05 * width,
+    },
+    camera_button: {
+        width: 300,
+        height: 41,
+        borderWidth: 1,
+        borderColor: '#BED751',
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    camera_container: {
+        flex: 1,
+        width: width,
+        backgroundColor: '#36425C',
+        alignSelf: 'center',
+        overflow: 'hidden',
+    },
 });
 
 export default styles;
