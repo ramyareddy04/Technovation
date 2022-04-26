@@ -14,8 +14,8 @@ import DatePicker from 'react-native-datepicker';
 import { Camera} from 'expo-camera';
 
 // MAP IMPORTS
-// import MapboxGL from '@react-native-mapbox-gl/maps';
-// import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
+import MapboxGL from '@react-native-mapbox-gl/maps';
+import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
 
 // NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
@@ -35,23 +35,23 @@ import nametag from './icons/nametag.png';
 // OTHER
 import styles from './styles';
 
-// MapboxGL.requestAndroidLocationPermissions()
-// LocationServicesDialogBox.checkLocationServicesIsEnabled({
-//   message: "Use Location ?",
-//   ok: "YES",
-//   cancel: "NO",
-// })
-//   .then(function (success) {
-//     console.log(success); // success => "enabled"
-//   })
-//   .catch((error) => {
-//     console.log(error.message); // error.message => "disabled"
-//   });
+MapboxGL.requestAndroidLocationPermissions()
+LocationServicesDialogBox.checkLocationServicesIsEnabled({
+  message: "Use Location ?",
+  ok: "YES",
+  cancel: "NO",
+})
+  .then(function (success) {
+    console.log(success); // success => "enabled"
+  })
+  .catch((error) => {
+    console.log(error.message); // error.message => "disabled"
+  });
 
-// MapboxGL.setAccessToken(
-//   "pk.eyJ1Ijoicm9taW92aWN0b3IxMjMiLCJhIjoiY2tzOXJ4YndkMHZpdjJzbno5emZic2hzNCJ9.0HQbmymuNzk0S4Ofsi2y-A"
-// );
-// MapboxGL.setConnected(true);
+MapboxGL.setAccessToken(
+  "pk.eyJ1Ijoicm9taW92aWN0b3IxMjMiLCJhIjoiY2tzOXJ4YndkMHZpdjJzbno5emZic2hzNCJ9.0HQbmymuNzk0S4Ofsi2y-A"
+);
+MapboxGL.setConnected(true);
 const Stack = createNativeStackNavigator();
 
 const NavBar = (props) => {
@@ -292,7 +292,7 @@ const ClassifyScreen = () => {
                 console.log(result["result"]);
                 var temp = JSON.parse(result["result"])
                 console.log(temp[0].class)
-                setText(<Text style={{color:"white",fontSize:20}}>{(temp[0].class != undefined) ? (temp[0].class == "keyboard" )? "electronics" : "plastic" : "plastic"}: {(temp[0].score != undefined) ? temp[0].score*100 : 88.556345273849}%</Text>)
+                setText(<Text style={styles.result_text}>{(temp[0].class != undefined) ? (temp[0].class == "keyboard" )? "electronics" : "plastic" : "plastic"}: {(temp[0].score != undefined) ? temp[0].score*100 : 88.556345273849}%</Text>)
               })
               .catch((error) => {
                 console.error('Error:', error);
@@ -408,152 +408,152 @@ function FindCentersScreen({ navigation, route }) {
   text2.push(<Text key="text2"></Text>);
   const update = true;
   const [text, setText] = useState(text2);
-  // const [mapText, setMapText] = useState(
-  //   <View>
-  //     <MapboxGL.MapView style={({ width: width }, { height: 0.4 * height })}>
-  //       <MapboxGL.UserLocation visible={true} />
-  //       <MapboxGL.Camera
-  //         zoomLevel={-1}
-  //         scrollEnabled={false}
-  //         logoEnabled={true}
-  //       />
-  //     </MapboxGL.MapView>
-  //     <Image
-  //       source={loadGif}
-  //       style={{
-  //         width: "50%",
-  //         height: "70%",
-  //         position: "absolute",
-  //         top: "90%",
-  //         left: "25%",
-  //       }}
-  //     ></Image>
-  //   </View>
-  // );
+  const [mapText, setMapText] = useState(
+    <View>
+      <MapboxGL.MapView style={({ width: width }, { height: 0.4 * height })}>
+        <MapboxGL.UserLocation visible={true} />
+        <MapboxGL.Camera
+          zoomLevel={-1}
+          scrollEnabled={false}
+          logoEnabled={true}
+        />
+      </MapboxGL.MapView>
+      <Image
+        source={loadGif}
+        style={{
+          width: "50%",
+          height: "70%",
+          position: "absolute",
+          top: "90%",
+          left: "25%",
+        }}
+      ></Image>
+    </View>
+  );
 
-  // function copyToClipboard(args) {
-  //   Clipboard.setString(args);
-  //   ToastAndroid.show(
-  //     "The address has been copied!",
-  //     ToastAndroid.SHORT
-  //   );
-  // }
+  function copyToClipboard(args) {
+    Clipboard.setString(args);
+    ToastAndroid.show(
+      "The address has been copied!",
+      ToastAndroid.SHORT
+    );
+  }
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     var lat =
-  //       MapboxGL.locationManager["_lastKnownLocation"]["coords"]["latitude"];
-  //     var long =
-  //       MapboxGL.locationManager["_lastKnownLocation"]["coords"]["longitude"];
-  //     var listAddress = [];
-  //     var listLong = [];
-  //     var listLat = [];
-  //     var results = [];
-  //     var mapResults = [];
+  useEffect(() => {
+    setTimeout(() => {
+      var lat =
+        MapboxGL.locationManager["_lastKnownLocation"]["coords"]["latitude"];
+      var long =
+        MapboxGL.locationManager["_lastKnownLocation"]["coords"]["longitude"];
+      var listAddress = [];
+      var listLong = [];
+      var listLat = [];
+      var results = [];
+      var mapResults = [];
 
-  //     results.push(<Text key="directions" style={{ fontSize: 20, color: "green", textAlign: "center" }}>Press on one of the addresses below to copy to clipboard.</Text>);
-  //     let tempKeys = mapInfo[route.params.index]["Keywords"];
-  //     for (let query in tempKeys) {
-  //       fetch(
-  //         "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-  //         tempKeys[query] +
-  //         ".json?country=US&proximity=" +
-  //         long +
-  //         "," +
-  //         lat +
-  //         "&limit=3&access_token=pk.eyJ1Ijoicm9taW92aWN0b3IxMjMiLCJhIjoiY2tzOXJ4YndkMHZpdjJzbno5emZic2hzNCJ9.0HQbmymuNzk0S4Ofsi2y-A"
-  //       )
-  //         .then((response) => response.json())
-  //         .then((response) => {
-  //           for (let i = 0; i < response["features"].length; i++) {
-  //             let temp = response["features"][i];
-  //             listAddress.push(temp["place_name"]);
-  //             listLong.push(temp.geometry.coordinates[0]);
-  //             listLat.push(temp.geometry.coordinates[1]);
-  //           }
-  //           if (3 * tempKeys.length === listAddress.length) {
-  //             if (listAddress.length === 0) {
-  //               setText(
-  //                 <Text>Map API is offline. Sorry for the inconvenience.</Text>
-  //               );
-  //             } else {
-  //               console.log(listAddress);
-  //               console.log(listLong);
-  //               console.log(listLat);
-  //               for (let x in listAddress) {
-  //                 results.push(
-  //                   <TouchableOpacity
-  //                     key={listAddress[x]}
-  //                     onPress={() => copyToClipboard(listAddress[x])}
-  //                   >
-  //                     <View
-  //                       key={x}
-  //                       style={[
-  //                         styles.rectangleMap,
-  //                         styles.elevation,
-  //                         styles.layoutMap,
-  //                       ]}
-  //                     >
-  //                       <Text style={{ fontSize: 15, textAlign: "center" }}>
-  //                         {"Location " + x + ": "} {listAddress[x]}
-  //                       </Text>
-  //                     </View>
-  //                   </TouchableOpacity>
-  //                 );
-  //                 mapResults.push(
-  //                   <MapboxGL.PointAnnotation
-  //                     key={x}
-  //                     id={x}
-  //                     coordinate={[listLong[x], listLat[x]]}
-  //                   >
-  //                     <View
-  //                       style={{
-  //                         height: 30,
-  //                         width: 30,
-  //                         backgroundColor: "#E07A5F",
-  //                         borderRadius: 50,
-  //                         borderColor: "#fff",
-  //                         borderWidth: 3,
-  //                       }}
-  //                     />
-  //                     <MapboxGL.Callout title={"Location " + x + ": "} />
-  //                   </MapboxGL.PointAnnotation>
-  //                 );
-  //               }
-  //               setText(results);
-  //               setMapText(
-  //                 <MapboxGL.MapView
-  //                   styleURL={MapboxGL.StyleURL.Street}
-  //                   style={({ width: width }, { height: 0.4 * height })}
-  //                 >
-  //                   <MapboxGL.UserLocation visible={true} />
-  //                   <MapboxGL.Camera
-  //                     animationDuration={5000}
-  //                     zoomLevel={8}
-  //                     centerCoordinate={[long, lat]}
-  //                     scrollEnabled={false}
-  //                     logoEnabled={true}
-  //                   />
-  //                   {mapResults}
-  //                 </MapboxGL.MapView>
-  //               );
-  //             }
-  //           }
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     }
+      results.push(<Text key="directions" style={{ fontSize: 20, color: "green", textAlign: "center" }}>Press on one of the addresses below to copy to clipboard.</Text>);
+      let tempKeys = mapInfo[route.params.index]["Keywords"];
+      for (let query in tempKeys) {
+        fetch(
+          "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+          tempKeys[query] +
+          ".json?country=US&proximity=" +
+          long +
+          "," +
+          lat +
+          "&limit=3&access_token=pk.eyJ1Ijoicm9taW92aWN0b3IxMjMiLCJhIjoiY2tzOXJ4YndkMHZpdjJzbno5emZic2hzNCJ9.0HQbmymuNzk0S4Ofsi2y-A"
+        )
+          .then((response) => response.json())
+          .then((response) => {
+            for (let i = 0; i < response["features"].length; i++) {
+              let temp = response["features"][i];
+              listAddress.push(temp["place_name"]);
+              listLong.push(temp.geometry.coordinates[0]);
+              listLat.push(temp.geometry.coordinates[1]);
+            }
+            if (3 * tempKeys.length === listAddress.length) {
+              if (listAddress.length === 0) {
+                setText(
+                  <Text>Map API is offline. Sorry for the inconvenience.</Text>
+                );
+              } else {
+                console.log(listAddress);
+                console.log(listLong);
+                console.log(listLat);
+                for (let x in listAddress) {
+                  results.push(
+                    <TouchableOpacity
+                      key={listAddress[x]}
+                      onPress={() => copyToClipboard(listAddress[x])}
+                    >
+                      <View
+                        key={x}
+                        style={[
+                          styles.rectangleMap,
+                          styles.elevation,
+                          styles.layoutMap,
+                        ]}
+                      >
+                        <Text style={{ fontSize: 15, textAlign: "center" }}>
+                          {"Location " + x + ": "} {listAddress[x]}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  );
+                  mapResults.push(
+                    <MapboxGL.PointAnnotation
+                      key={x}
+                      id={x}
+                      coordinate={[listLong[x], listLat[x]]}
+                    >
+                      <View
+                        style={{
+                          height: 30,
+                          width: 30,
+                          backgroundColor: "#C2A83E",
+                          borderRadius: 50,
+                          borderColor: "#fff",
+                          borderWidth: 3,
+                        }}
+                      />
+                      <MapboxGL.Callout title={"Location " + x + ": "} />
+                    </MapboxGL.PointAnnotation>
+                  );
+                }
+                setText(results);
+                setMapText(
+                  <MapboxGL.MapView
+                    styleURL={MapboxGL.StyleURL.Street}
+                    style={({ width: width }, { height: 0.4 * height })}
+                  >
+                    <MapboxGL.UserLocation visible={true} />
+                    <MapboxGL.Camera
+                      animationDuration={5000}
+                      zoomLevel={8}
+                      centerCoordinate={[long, lat]}
+                      scrollEnabled={false}
+                      logoEnabled={true}
+                    />
+                    {mapResults}
+                  </MapboxGL.MapView>
+                );
+              }
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
 
-  //   }, 5000);
-  // }, [update]);
+    }, 5000);
+  }, [update]);
 
   return (
-    <View style={{ justifyContent: "center", textAlign: 'center', backgroundColor: "#3D595B" }}>
+    <View style={{ justifyContent: "center", textAlign: 'center', backgroundColor: "#243E36" }}>
       {mapText}
       <View
         style={
-          ({ backgroundColor: "#3D505B" }, { height: height - 0.4 * height })
+          ({ backgroundColor: "#243E36" }, { height: height - 0.4 * height })
         }
       >
         <ScrollView style={{ flex: 1 }}>{text}</ScrollView>

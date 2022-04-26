@@ -194,6 +194,11 @@ const styles = StyleSheet.create({
         marginTop: 0.01 * width,
         textAlign: "center",
     },
+    result_text: {
+        color: "#F1F7ED",
+        fontSize: 17,
+        textAlign: "center",
+    },
     button_container: {
         flex: 1,
         flexDirection: 'row',
