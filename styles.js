@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet } from 'react-native';
 const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#36425C',
+        backgroundColor: '#243E36',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         height: 0.12 * height,
         marginTop: 0.76 * height,
         position: 'absolute',
-        backgroundColor: "#8AC755",
+        backgroundColor: "#C2A83E",
         flexDirection: "row",
         justifyContent: "space-evenly"
     },
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         height: 0.15 * height,
         borderRadius: 15,
         marginTop: 0.04 * height,
-        backgroundColor: '#8AC755',
+        backgroundColor: '#7CA982',
         marginLeft: 0.5 * 0.1 * width
     },
     imageMap: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         textAlign: "center",
         justifyContent: "center",
-        color: "#19C5E0"
+        color: "#E0EEC6"
     },
     home_log: {
         width: 0.86 * width,
@@ -88,21 +88,20 @@ const styles = StyleSheet.create({
         marginTop: 0.05 * width,
         marginLeft: 0.07 * width,
         marginRight: 0.07 * width,
-        backgroundColor: '#8AC755',
+        backgroundColor: '#7CA982',
         borderRadius: 10,
         borderWidth: 1,
-        // borderColor: '#fff',
     },
     home_text: {
         fontSize: 20,
-        color: '#FFFFFF',
+        color: '#F1F7ED',
         alignSelf:'center',
         marginTop: 5,
         marginBottom: 5,
       },
     home_container: {
         height: height,
-        backgroundColor: '#36425C',
+        backgroundColor: '#3D595B',
         alignItems: 'center',
         color: '#FFFFFF'
       },
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
         marginTop: 0.05 * width,
         marginLeft: 0.07 * width,
         marginRight: 0.07 * width,
-        backgroundColor: '#8AC755',
+        backgroundColor: '#7CA982',
         borderRadius: 10,
         borderWidth: 1,
     },
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
         marginLeft: 0.07 * width,
         marginRight: 0.07 * width,
         marginBottom: 0.47 * width,
-        backgroundColor: '#8AC755',
+        backgroundColor: '#7CA982',
         borderRadius: 10,
         borderWidth: 1,
     },
@@ -143,7 +142,7 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor : '#8AC755'
+        backgroundColor : '#7CA982'
     },
     title: {
         textAlign: 'left',
@@ -157,16 +156,16 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         width: 230,
         fontSize: 16,
-        color : "#000"
+        color : "#F1F7ED"
     },
     logText: {
-        color: "#ffffff",
+        color: "#F1F7ED",
         fontSize: 20,
         marginTop: 0.01 * width,
         marginLeft:.02*width
     },
     logText2: {
-        color: "#ffffff",
+        color: "#F1F7ED",
         fontSize: 17,
         marginLeft:.02*width
     },
@@ -182,17 +181,29 @@ const styles = StyleSheet.create({
         marginTop: 0.05 * width,
     },
     camera_button: {
-        width: 300,
-        height: 41,
+        width: 0.5 * width,
+        height: 0.06 * height,
         borderWidth: 1,
         borderColor: '#BED751',
+        backgroundColor: '#1A2723',
         borderRadius: 10,
-        alignItems: 'center',
+    },
+    camera_text: {
+        color: "#F1F7ED",
+        fontSize: 20,
+        marginTop: 0.01 * width,
+        textAlign: "center",
+    },
+    button_container: {
+        flex: 1,
+        flexDirection: 'row',
+        margin: 20,
+        justifyContent: 'center',
     },
     camera_container: {
         flex: 1,
         width: width,
-        backgroundColor: '#36425C',
+        backgroundColor: '#3D595B',
         alignSelf: 'center',
         overflow: 'hidden',
     },
